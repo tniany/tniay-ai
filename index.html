@@ -1,0 +1,75 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 对话系统</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .api-input-container {
+            display: flex;
+            align-items: center;
+        }
+        .api-input {
+            flex: 1;
+            margin-right: 10px; /* 输入框与按钮之间的间距 */
+        }
+        .confirm-btn {
+            width: 40px; /* 按钮宽度 */
+            height: 40px; /* 按钮高度 */
+            border-radius: 50%; /* 圆形按钮 */
+            background-color: #007bff; /* 按钮背景颜色 */
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px; /* 字体大小 */
+        }
+        .loading-message {
+            color: #007bff; /* 加载提示颜色 */
+            text-align: center; /* 居中 */
+            margin: 10px 0; /* 上下间距 */
+            font-size: 1.1em; /* 增大字体 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI 对话系统</h1>
+        <div class="api-configuration">
+            <h2>API 配置</h2>
+            <div class="api-input-container">
+                <input type="text" id="apiUrl" class="api-input" placeholder="输入您的API链接 (需以 http:// 或 https:// 开头)" autocomplete="off">
+                <button class="confirm-btn" id="verifyBtn">✔️</button> <!-- 使用符号作为图标 -->
+            </div>
+            <label for="apiKey">输入API密钥:</label>
+            <input type="text" id="apiKey" placeholder="输入您的API密钥" autocomplete="off">
+        </div>
+        <div id="chatbox" style="display: none;">
+            <div id="messages">
+                <div class="system-message">温馨提示：请勿发送违反法律法规的内容。</div>
+                <div id="apiWarning" class="warning-message" style="display: none;">请提供API配置以发送消息。</div>
+            </div>
+            <div class="input-container">
+                <input type="text" id="userInput" placeholder="输入您的消息" autocomplete="off">
+                <button id="sendBtn">发送</button>
+            </div>
+        </div>
+        <div class="instructions">
+            <h2>使用方法</h2>
+            <p>1. 输入API链接和API密钥。</p>
+            <p>2. 点击确认按钮以验证API链接。</p>
+            <p>3. 在输入框中输入您的消息。</p>
+            <p>4. 点击“发送”按钮或按下 Enter 键获取AI的回复。</p>
+            <h2>注意事项</h2>
+            <p>1. 确保您的网络连接正常。</p>
+            <p>2. API密钥由用户提供。</p>
+            <p>3. API链接必须以 http:// 或 https:// 开头。</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
